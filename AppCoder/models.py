@@ -7,6 +7,8 @@ class Especialidad (models.Model):
     # Grupo etario  1 (ninos) 2 (adolecentes) 3 (adultos) 4 (adultos mayores)
     grupoetario=models.IntegerField()
 
+    def __str__(self):
+        return self.nombre
 
 class Paciente (models.Model):
 
