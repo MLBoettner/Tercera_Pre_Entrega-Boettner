@@ -10,7 +10,19 @@ Medicos
           <div class="container">
               <div class="row">
                   <div class="col-lg-12">
-                          <h1>Bienvenido</h1>
+                    {% if medicos.errors %}
+                    <p style="color: red;"> Los datos son incorrectos. Por favor reviselos </p>
+                    {% endif %}
+
+                   <form action="{% url 'medicos' %}" method="POST">
+                        {% csrf_token %}
+
+                        <table>
+                            {{medicos.as_table}}
+                        </table>
+
+                        <input type="submit" value="Enviar">
+                    </form>
                   </div>
               </div>
           </div>

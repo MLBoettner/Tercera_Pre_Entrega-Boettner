@@ -10,7 +10,19 @@ Especialidades
           <div class="container">
               <div class="row">
                   <div class="col-lg-12">
-                          <h1>Bienvenido</h1>
+                        {% if especialidades.errors %}
+                        <p style="color: red;"> Los datos son incorrectos. Por favor reviselos </p>
+                        {% endif %}
+
+                       <form action="{% url 'especialidades' %}" method="POST">
+                            {% csrf_token %}
+
+                            <table>
+                                {{especialidades.as_table}}
+                            </table>
+
+                            <input type="submit" value="Enviar">
+                        </form>
                   </div>
               </div>
           </div>
